@@ -99,3 +99,50 @@ Thumbs.db
 *.bak
 *.swp
 *~
+# ============================================================
+# NP1 generated datasets / databases
+# ============================================================
+
+*.db
+*.sqlite
+*.sqlite3
+
+network_anomaly_scores.csv
+ml3_predictions.csv
+grid_hourly_analytics.csv
+grid_summary.csv
+
+# Generated ML / analytics outputs
+ml6_top20_operational_attention.csv
+daily_summary.csv
+network_alerts.csv
+rule_based_alert_summary.csv
+
+# Python cache
+__pycache__/
+
+# NP1 generated data
+data/raw/
+data/processed/
+data/analytics/
+data/archive/
+data/rejected/
+
+# Generated databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated large CSVs
+grid_hourly_analytics.csv
+grid_summary.csv
+ml3_predictions.csv
+network_anomaly_scores.csv
+ml6_top20_operational_attention.csv
+daily_summary.csv
+network_alerts.csv
+rule_based_alert_summary.csv
+
+# Python cache
+__pycache__/
+logs/

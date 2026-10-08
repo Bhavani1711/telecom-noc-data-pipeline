@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import logging
 from pathlib import Path
+from baseline_utils import calculate_excluding_current_baseline
 
 
 # ============================================================
@@ -179,27 +180,11 @@ logger.info(
 # baseline = median of all other available hourly
 # activity values, excluding the current hour.
 
-eligible["baseline_activity"] = np.nan
-
-for (grid, date), group in eligible.groupby(
-    ["grid_id", "date"]
-):
-
-    values = group["total_activity"].to_numpy()
-
-    for position, index in enumerate(group.index):
-
-        other_values = np.delete(
-            values,
-            position
-        )
-
-        if len(other_values) > 0:
-
-            eligible.loc[
-                index,
-                "baseline_activity"
-            ] = np.median(other_values)
+eligible["baseline_activity"] = calculate_excluding_current_baseline(
+    eligible,
+    bucket_columns=["grid_id", "date"],
+    value_column="total_activity"
+)
 
 
 # ============================================================
